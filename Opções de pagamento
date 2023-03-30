@@ -1,0 +1,77 @@
+#include <stdio.h>
+
+float opcao1(float gasto){
+
+    float aVista;
+
+    aVista = gasto - (gasto * 10 / 100); // Calcula o valor com desconto de 10%
+
+    printf("\nPagamento a vista selecionado. O valor total com desconto e: R$ %.2f\n", aVista);
+}
+
+float opcao2(float gasto){
+
+    float emDuas;
+
+    emDuas = gasto / 2; // Calcula o valor de cada parcela
+
+     printf("\nPagamento parcelado em 2 vezes selecionado. Cada parcela tem o valor de R$ %.2f\n", emDuas);
+}
+
+float opcao3(float gasto){
+
+    int numParcelas;
+    float juros;
+
+   if (gasto > 100) {
+        printf("Digite o numero de parcelas (3 a 10): ");
+        int numParcelas;
+        scanf("%d", &numParcelas);
+
+        if (numParcelas >= 3 && numParcelas <= 10) {
+                juros = gasto * 0.03 * numParcelas;
+
+                float valorParcela = (gasto + juros) / numParcelas;
+
+                printf("\nPagamento parcelado em %d vezes selecionado.", numParcelas);
+                printf("\nValor total da compra com juros: R$%.2f\n", gasto + juros);
+                printf("Valor de cada parcela: R$%.2f\n", valorParcela);
+    } else{
+        printf("Numero de parcelas invalido.\n");
+    }
+    }else{
+        printf("Opcao invalida para compras abaixo de R$100,00.\n");
+         }
+}
+
+int main() {
+    float gasto, valor_desconto, valor_parcela;
+
+    printf("Informe o valor total gasto na compra: R$");
+    scanf("%f", &gasto);
+
+    valor_desconto = gasto * 0.9; // Calcula o valor com desconto de 10%
+    valor_parcela = gasto / 2; // Calcula o valor de cada parcela
+
+    printf("\nOpcoes de pagamento:\n");
+    printf("1- A vista (com 10%% de desconto): R$ %.2f\n", valor_desconto);
+    printf("2- Parcelado em 2x de R$ %.2f\n", valor_parcela);
+    printf("3- Parcelamento de 3x ate 12x (compras acima de R$100.00)");
+
+
+    int opcao;
+
+    printf("\n\nDigite a opcao desejada (1, 2 ou 3)");
+    printf("\nOpcao:");
+    scanf("%d", &opcao);
+
+        if(opcao == 1){
+        opcao1(gasto);
+    }else if(opcao == 2){
+        opcao2(gasto);
+    }else if(opcao == 3){
+        opcao3(gasto);
+    }else{
+        printf("Opcao invalida.");
+    }
+}
