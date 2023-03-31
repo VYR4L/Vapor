@@ -14,7 +14,7 @@ struct cadastro{
 };
 
 int main(){
-    int n=0, i=0;
+    int n = 0, i = 0;
     int a = 1, b = 1;
     char confirm[20];
     struct cadastro *usuario = NULL;
@@ -26,7 +26,7 @@ int main(){
     usuario = malloc(n * sizeof(struct cadastro));
 
     if(usuario == NULL){
-        printf("Não foi possível alocar o estoque");
+        printf("NÃ£o foi possÃ­vel alocar o estoque");
         exit(1);
     }
     
