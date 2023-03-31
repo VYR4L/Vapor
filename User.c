@@ -40,23 +40,23 @@ int main(){
         scanf("%s", &usuario[i].apelido);
         fflush(stdin);
         
-		while(a != 0){
+	while(a != 0){
         	printf("Cadastre a senha do Usuario: ");
        	 	scanf("%s", &usuario[i].senha);
         	fflush(stdin);
         	printf("Confirme sua senha: ");
         	scanf("%s", &confirm);
         	a = strcmp(usuario[i].senha,confirm);
-		}
+	}
       
-	    while(b != 0){
+	 while(b != 0){
         	printf("Digite o email do Usuario: ");
        	 	scanf("%s", &usuario[i].email);
         	fflush(stdin);
         	printf("Confirme o Email: ");
         	scanf("%s", &confirm);
         	b = strcmp(usuario[i].email,confirm);
-		}
+	}
 
         printf("Digite o telefone do Usuario: ");
         scanf("%d", &usuario[i].tel);
@@ -74,7 +74,7 @@ int main(){
         scanf("%s", &usuario[i].sexo);
         fflush(stdin);
         
-		system("cls");
+	system("cls");
     }
     free(usuario);
 }
