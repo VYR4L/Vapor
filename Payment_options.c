@@ -96,7 +96,7 @@ void opcaoInvalida(){
     printf("Opcao invalida.\n");
 }
 
-int main() {
+int menuPagamento() {
     setlocale(LC_ALL, "Portuguese");
     float gasto = informaValor();
 
