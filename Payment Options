@@ -100,9 +100,6 @@ int main() {
     setlocale(LC_ALL, "Portuguese");
     float gasto = informaValor();
 
-    //valor_desconto = gasto * 0.9; // Calcula o valor com desconto de 10%
-    //valor_parcela = gasto / 2; // Calcula o valor de cada parcela
-
     opcoesPagamento();
 
     int opcao;
