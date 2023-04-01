@@ -1,55 +1,17 @@
 #include <stdio.h>
 #include <locale.h>
+#include <stdlib.h>
 
-float gasto, valor_desconto, valor_parcela;
-
-void opcoesPagamento(){
-
-    printf("Informe o valor total gasto na compra: R$");
-    scanf("%f", &gasto);
+float aVista(float gasto);
+float parcelado(float gasto);
 
 
-    int valida_gasto = 0;
-
-    while(valida_gasto == 0){
-        if(gasto > 0){
-            valor_desconto = gasto * 0.9; // Calcula o valor com desconto de 10%
-            valor_parcela = gasto / 2; // Calcula o valor de cada parcela
-
-            system("cls");
-
-            printf("Oções de pagamento:\n");
-            printf("1- À vista (com 10%% de desconto): R$%.2f\n", valor_desconto);
-            printf("2- Parcelado.");
-            valida_gasto = 1;
-        }else{
-            system("cls");
-
-            printf("Valor inválido. Por favor insira um valor existente.");
-            printf("\nInforme o valor total gasto na compra: R$");
-            scanf("%f", &gasto);
-        }
-    }
-}
-
-int lerOpcao(){
-
-    int opcao;
-
-    printf("Digite a opção desejada (1 ou 2)");
-    printf("\nOpção:");
-    scanf("%d", &opcao);
-
-    return opcao;
-}
-
-float aVista(float gasto){
-
+float aVista(float gasto) {
     float aVista;
 
-    aVista = gasto - (gasto * 10 / 100);
+    aVista = gasto - (gasto * 10 / 100); // Calcula o valor com desconto de 10%
 
-    printf("\nPagamento à vista selecionado. Valor total com desconto: R$ %.2f\n", aVista);
+    printf("\nPagamento a vista selecionado. O valor total com desconto sera: R$ %.2f\n", aVista);
 }
 
 float parcelado(float gasto) {
@@ -59,7 +21,7 @@ float parcelado(float gasto) {
     int validaQntParcela = 0;
 
     printf("\nVoce poderá parcelar de 1 a 12 parcelas\n");
-    printf("(Lembrando que até 5 parcelas os juros não serão inclusos)\n");
+    printf("(Lembrando que ate 5 parcelas os juros não serão inclusos)\n");
 
     while(validaQntParcela == 0) {
         printf("\nDigite a quantidade de parcelas: ");
@@ -73,9 +35,7 @@ float parcelado(float gasto) {
             printf("Valor de cada parcela sem juros: R$%.2f\n", valorParcela);
 
             validaQntParcela = 1; //Sai do loop
-
         } else if (qntParcelas >= 6 && qntParcelas <= 12) {
-
             juros = gasto * 0.03 * qntParcelas;
 
             float valorParcela = (gasto + juros) / qntParcelas;
@@ -86,34 +46,50 @@ float parcelado(float gasto) {
 
             validaQntParcela = 1; //Sai do loop
         } else {
-            system("cls");
-            printf("Escolha uma quantidade de parcelas entre 1 a 12");
+            printf("\nEscolha uma quantidade de parcelas entre 1 a 12");
             validaQntParcela = 0; //Continua no loop
         }
     }
 }
 
-int opcaoEscolhida(opcao){
+float informaValor(){
+    float gasto;
+    printf("Informe o valor total gasto na compra: R$");
+    scanf("%f", &gasto);
+    return gasto;
+}
 
-    if(opcao == 1){
-        aVista(gasto);
-    }else if(opcao == 2){
-        parcelado(gasto);
-    }else if(opcao != 1){
-        printf("Opção inválida.");
-    }else if(opcao != 2){
-        printf("Opção inválida.");
-    }
+void opcoesPagamento(){
+    printf("\nOpcoes de pagamento:\n");
+    printf("1 - A vista (10%% de desconto)\n");
+    printf("2 - Parcelado\n");
+}
+
+void opcaoInvalida(){
+    printf("Opcao invalida.\n");
 }
 
 int main() {
-
     setlocale(LC_ALL, "Portuguese");
+    float gasto = informaValor();
+
+    //valor_desconto = gasto * 0.9; // Calcula o valor com desconto de 10%
+    //valor_parcela = gasto / 2; // Calcula o valor de cada parcela
 
     opcoesPagamento();
 
-    int opcao = lerOpcao();
+    int opcao;
 
-    opcaoEscolhida(opcao);
+        printf("\nDigite a opcao desejada: ");
+        scanf("%d", &opcao);
+
+            if(opcao == 1) {
+            aVista(gasto);
+        }else if(opcao == 2) {
+            parcelado(gasto);
+        } else {
+            printf("Opcao invalida.");
+        }
+
+    return 0;
 }
-
