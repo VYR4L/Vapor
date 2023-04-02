@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int n;
 struct library{
     char name[50];
     char MediaType[8];
