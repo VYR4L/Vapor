@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-
+int n=0;
 struct library{
     char name[50];
     char MediaType[8];
@@ -14,7 +14,7 @@ struct library{
     char requirements[5][50];
 };
 
-void mostra_estoque(struct library *stock, int n){
+void mostraEstoque(struct library *stock){
     for(int i = 0; i < n; i++){
         printf("%d. Digite o nome do produto: %s\n",i+1 , stock[i].name);
         printf("%d. Tipo de midia: %s\n",i+1 , stock[i].MediaType);
@@ -44,7 +44,7 @@ void mostra_estoque(struct library *stock, int n){
     }
 }
 
-void remove_jogo(struct library **stock, int n){
+void removeJogo(struct library **stock){
     int removeN=0;
     printf("Digite o numero do jogo que deseja excluir do estoque: ");
     scanf("%d", &removeN);
@@ -66,7 +66,7 @@ void remove_jogo(struct library **stock, int n){
     printf("Jogo removido com sucesso.\n");
 }
 
-void cadastra_jogo(struct library **stock, int n){
+void cadastraJogo(struct library **stock){
     *stock = realloc(*stock, n * sizeof(struct library *));
     for(int i = 0; i < n; i++){
         printf("Digite o nome do produto: ");
@@ -127,8 +127,8 @@ void cadastra_jogo(struct library **stock, int n){
 
 
 
-int main(){
-    int n=0, confirmacao;
+int cadastraEstoque(){
+    int confirmacao;
     struct library *stock = NULL;
 
     printf("Digite a quantidade de produtos que deseja cadastrar: ");
@@ -145,20 +145,20 @@ int main(){
     scanf("%d", &confirmacao);
     while(confirmacao != 4) {
         if (confirmacao == 1) {
-            cadastra_jogo(&stock, n);
+            cadastraJogo(&stock);
             printf("Digite a operacao que deseja realizar: ");
             printf("(1-Cadastrar;\n2-Remover Jogo Cadastrado;\n3-Mostrar o Estoque;\n4-Sair.) ");
             scanf("%d", &confirmacao);
         }
         else if (confirmacao == 2) {
-            mostra_estoque(stock, n);
-            remove_jogo(&stock, n);
+            mostraEstoque(stock);
+            removeJogo(&stock);
             printf("Digite a operacao que deseja realizar: ");
             printf("(1-Cadastrar;\n2-Remover Jogo Cadastrado;\n3-Mostrar o Estoque;\n4-Sair.) ");
             scanf("%d", &confirmacao);
         }
         else if (confirmacao == 3) {
-            mostra_estoque(stock, n);
+            mostraEstoque(stock);
             printf("Digite a operacao que deseja realizar: ");
             printf("(1-Cadastrar;\n2-Remover Jogo Cadastrado;\n3-Mostrar o Estoque;\n4-Sair.) ");
             scanf("%d", &confirmacao);
