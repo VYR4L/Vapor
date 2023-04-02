@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "Stock.h"
 #include "User.h"
+
 struct relatorio{
 
     float valorcompra;
@@ -11,6 +12,7 @@ struct relatorio{
 };
 
 int relato(){
+
 
     int i;
     float total;
