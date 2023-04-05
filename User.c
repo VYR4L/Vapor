@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
-
+int m = 0;
 struct cadastro{
     char name[100];
     char apelido[50];
@@ -13,23 +13,23 @@ struct cadastro{
     char sexo[20];
 };
 
-int cadastraUsuario(){
-    int n = 0, i;
+void cadastraUsuario(){
+    int i;
     int a = 1, b = 1;
     char confirm[20];
     struct cadastro *usuario = NULL;
 
     printf("Digite a quantidade de Usuarios que deseja Cadastrar: ");
-    scanf("%d", &n);
+    scanf("%d", &m);
 
-    usuario = malloc(n * sizeof(struct cadastro));
+    usuario = malloc(m * sizeof(struct cadastro));
 
     if(usuario == NULL){
         printf("Não foi possível alocar o estoque");
         exit(1);
     }
 
-    for(i = 0; i < n; i++){
+    for(i = 0; i < m; i++){
         printf("Digite o nome da Pessoa: ");
         scanf("%s", usuario[i].name);
         fflush(stdin);
