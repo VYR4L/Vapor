@@ -16,6 +16,8 @@ struct library{
     char requirements[5][50];
 };
 
+struct library *stock = NULL;
+
 void mostra_estoque(struct library *stock, int n);
 void remove_jogo(struct library **stock, int n);
 void cadastra_jogo(struct library **stock, int n);

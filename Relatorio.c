@@ -7,7 +7,7 @@ struct relatorio{
 
     float valorcompra;
     char funcionario[100];
-    char nomejogo[];
+    char nomejogo[50];
 
 };
 
@@ -17,7 +17,10 @@ int relato(){
     int i;
     float total;
     struct relatorio *relata = NULL;
-
+    for(i = 0 ; i < n ; i++){
+        &relata[i].nomejogo = *stock[i].name;
+        relata[i].funcionario = [i].name);
+    }
 
     relata = malloc(n * sizeof(struct relatorio));
 
