@@ -18,8 +18,8 @@ struct library{
 
 struct library *stock = NULL;
 
-void mostra_estoque(struct library *stock, int n);
-void remove_jogo(struct library **stock, int n);
-void cadastra_jogo(struct library **stock, int n);
-int cadastra_estoque();
+void mostraEstoque(struct library *stock, int n);
+void removeJogo(struct library **stock, int n);
+void cadastraJogo(struct library **stock, int n);
+void cadastraEstoque();
 #endif
