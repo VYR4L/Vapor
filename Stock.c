@@ -127,7 +127,7 @@ void cadastraJogo(struct library **stock){
 
 
 
-int cadastraEstoque(){
+void cadastraEstoque(){
     int confirmacao;
     struct library *stock = NULL;
 
@@ -164,7 +164,7 @@ int cadastraEstoque(){
             scanf("%d", &confirmacao);
         }
         else if(confirmacao == 4){
-            return 0;
+            confirmacao = 4;
         }
         else {
             printf("Opcao invalida\n");
