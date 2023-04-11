@@ -60,7 +60,7 @@ int main(){
             cadastraUsuario();
         } else if (decisao == 'c') {
             for(int i = 0 ; i <= totales() ; i++) {
-                printf("O valor do jogo %d é %.2f\n", i + 1, stock->price);
+                printf("%d %s preco: %.2f\n", i+1, stock[i].name, stock[i].price);
             }
                 carrinho();
                 menuPagamento();
