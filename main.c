@@ -10,6 +10,17 @@ struct relatorio{
     char funcionario[100];
 };
 
+void carrinho(){
+    float precoCarrinho=0;
+    int digito=0, quantidade=0;
+    scanf("%d", &quantidade);
+    for(int i =0; i <= quantidade; i++) {
+        printf("Digite o indicie do jogo que deseja adicionar ao carrinho:\n");
+        scanf("%d", &digito);
+        precoCarrinho += stock[digito-1].price;
+    }
+}
+
 void relato(){
     float total;
     struct relatorio *relata = NULL;
@@ -51,6 +62,7 @@ int main(){
             for(int i = 0 ; i <= totales() ; i++) {
                 printf("O valor do jogo %d é %.2f\n", i + 1, stock->price);
             }
+                carrinho();
                 menuPagamento();
         } else if (decisao == 'd') {
             relato();
