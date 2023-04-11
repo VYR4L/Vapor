@@ -31,34 +31,34 @@ void relato(){
     printf("Compra realizada por funionario : %s \n",relata[valorM()].funcionario);
     printf("O valor total da compra é : %.2f \n",total);
     printf("Os jogos comprados foram : \n");
-    for(int i = 0 ; i < totales() ; i++){
+    for(int i = 0 ; i < totales(); i++){
         printf("%c \n", relatorioStock[i]);
     }
 }
 
-
-
-
-
 int main(){
     char decisao;
-    printf("BEM VINDO A VAPOR!\nO QUE DESEJA FAZER?\n");
-    printf("a. Cadastro de Produtos;\nb. Cadastro de Usuarios;\nc. Tela de Vendas;\nd. Emitir Relatorios.");
+    printf("Bem vindo a Vapor!\nPor favor escolha uma opção.\n");
+    printf("a. Cadastro de Produtos;\nb. Cadastro de Usuarios;\nc. Tela de Vendas;\nd. Emitir Relatorios.\n");
     scanf("%c", &decisao);
     decisao = tolower(decisao);
-    if(decisao == 'a'){
-        cadastraEstoque();
-    }
-    else if(decisao == 'b'){
-        cadastraUsuario();
-    }
-    else if(decisao == 'c'){
-        menuPagamento();
-    }
-    else if(decisao == 'd'){
-        relato();
-    }
-    else{
-        printf("Opcao invalida!");
+    while(decisao != 'e') {
+        if (decisao == 'a') {
+            cadastraEstoque();
+        } else if (decisao == 'b') {
+            cadastraUsuario();
+        } else if (decisao == 'c') {
+            for(int i = 0 ; i <= totales() ; i++) {
+                printf("O valor do jogo %d é %.2f\n", i + 1, stock->price);
+            }
+                menuPagamento();
+        } else if (decisao == 'd') {
+            relato();
+        } else {
+            printf("Opcao invalida!\n");
+        }
+        printf("a. Cadastro de Produtos;\nb. Cadastro de Usuarios;\nc. Tela de Vendas;\nd. Emitir Relatorios.\n");
+        scanf("%c", &decisao);
+        decisao = tolower(decisao);
     }
 }
