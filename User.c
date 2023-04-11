@@ -1,7 +1,11 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
+
 int m = 0;
+int valorM(){
+    m;
+};
 struct cadastro{
     char name[100];
     char apelido[50];

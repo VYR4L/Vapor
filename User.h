@@ -5,8 +5,7 @@
 #include<stdio.h>
 #include<string.h>
 
-int m = 0;
-struct cadastro *usuario = NULL;
+
 
 struct cadastro{
     char name[100];
@@ -18,6 +17,7 @@ struct cadastro{
     int nasci;
     char sexo[20];
 };
+struct cadastro *usuario = NULL;
 void cadastraUsuario();
-
+int valorM();
 #endif

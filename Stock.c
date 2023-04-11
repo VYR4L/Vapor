@@ -1,7 +1,12 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-int n=0;
+ int n = 0, totals;
+
+int totales(){
+    totals = n;
+};
+
 struct library{
     char name[50];
     char MediaType[8];
