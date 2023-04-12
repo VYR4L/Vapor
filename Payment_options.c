@@ -97,7 +97,7 @@ float aVista(float gasto) {
 }
 int menuPagamento() {
     setlocale(LC_ALL, "Portuguese");
-    printf("d");
+
     float gasto = informaValor();
 
     opcoesPagamento();
