@@ -4,8 +4,8 @@
 #include <locale.h>
 #include <stdlib.h>
 
-float aVista(float gasto);
-float parcelado(float gasto);
+void aVista(float gasto);
+float parcelado(float gasto) ;
 float informaValor();
 void opcoesPagamento();
 void opcaoInvalida();

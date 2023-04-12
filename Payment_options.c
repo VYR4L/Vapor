@@ -1,18 +1,10 @@
 #include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
-float aVista(float gasto);
-float parcelado(float gasto);
 
-
-float aVista(float gasto) {
-    float aVista;
-
-    aVista = gasto - (gasto * 10 / 100); // Calcula o valor com desconto de 10%
-
-    printf("\nPagamento a vista selecionado. O valor total com desconto sera: R$ %.2f\n", aVista);
-}
 
 float parcelado(float gasto) {
     int qntParcelas;
@@ -96,8 +88,16 @@ void opcaoInvalida(){
     printf("Opcao invalida.\n");
 }
 
+float aVista(float gasto) {
+    float aVista;
+    printf("%f", gasto);
+    aVista = gasto - (gasto * 10 / 100); // Calcula o valor com desconto de 10%
+    printf("\nPagamento a vista selecionado. O valor total com desconto sera: R$ %.2f\n", aVista);
+    return aVista;
+}
 int menuPagamento() {
     setlocale(LC_ALL, "Portuguese");
+    printf("d");
     float gasto = informaValor();
 
     opcoesPagamento();
@@ -105,20 +105,20 @@ int menuPagamento() {
     int opcao;
 
 
-while (1) {
-    printf("\nDigite a opcao desejada: ");
-    scanf("%d", &opcao);
+    while (1) {
+        printf("\nDigite a opcao desejada: ");
+        scanf("%d", &opcao);
 
-    if (opcao == 1) {
-        aVista(gasto);
-        break;
-    } else if (opcao == 2) {
-        parcelado(gasto);
-        break;
-    } else {
-        printf("Opcao invalida. Tente novamente.\n");
+        if (opcao == 1) {
+            aVista(gasto);
+            break;
+        } else if (opcao == 2) {
+            parcelado(gasto);
+            break;
+        } else {
+            printf("Opcao invalida. Tente novamente.\n");
+        }
     }
-}
 
     return 0;
 }
